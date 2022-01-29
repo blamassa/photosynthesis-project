@@ -1,0 +1,7 @@
+token
+*.pyc
+__pycache__
+
+*.json
+*.csv
+!worldcities.csv
