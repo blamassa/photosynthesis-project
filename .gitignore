@@ -2,6 +2,7 @@ token
 *.pyc
 __pycache__
 
+*.html
 *.json
 *.csv
 !worldcities.csv
