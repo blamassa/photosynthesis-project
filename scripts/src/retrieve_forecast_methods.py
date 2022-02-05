@@ -79,8 +79,7 @@ def create_df_from_JSON(data_file):
         # Try to append the timepoint to the dataframe, otherwise print the error
         try:
             df_tmp = pd.DataFrame(data = data,columns=['date','time']+keys)
-            #df = df.append(df_tmp) --> Deprecated on future pandas version
-            df = pd.concat([df, df_tmp])
+            df = df.append(df_tmp)
         except:
             print(datetime[0], end = '... FAIL')
             print(details)
