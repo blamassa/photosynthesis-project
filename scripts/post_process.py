@@ -33,3 +33,5 @@ df_forecast_populated = df_forecast_populated[['city', 'date','lat', 'lng', 'adm
 df_forecast_populated.to_csv('../db/final/{}_{}.csv'.format(country_name, today))
 # Generate plot
 generate_plot(df_plot = df_forecast_populated, country_name = country_name)
+
+print('Post-processing finished')

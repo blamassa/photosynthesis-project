@@ -22,15 +22,15 @@ except FileNotFoundError:
     print('{} not found. Create it!'.format(country_csv))
     df = generate_countryDB(country_name)
 
-print('apply pop filter')
+print('Apply pop filter')
 # Apply population filter to the country csv
 df_filtered_cities = filter_cities_by_population(df, population_filter)
 df_filtered_cities.to_csv('../db/filtered/{}_filtered_cities.csv'.format(country_name))
 
-print('download JSON for each')
+print('Download JSON for each city')
 # Download JSON forecast for each city on the df_filtered_cities database
 for index, row in df_filtered_cities.iterrows():
-    print(row['city'])
+    print(' ',row['city'])
     # Declaring params
     params = dict(lat = str(row['lat']),
                   lon = str(row['lng']),
@@ -65,5 +65,3 @@ for city_json in os.listdir('../city_fct/'):
 # Reset index of the unified dataframe
 df_unified = df_unified.reset_index(drop=True)
 df_unified.to_csv('../db/unified/{}_unified_{}.csv'.format(country_name,date.today()))
-
-print('\n\nDONE')

@@ -59,3 +59,5 @@ template = template.replace('{MAP_FILE.HTML}','../plots/'+most_recent_map)
 
 with open('../dashboard/index.html','w') as f:
     f.write(template)
+
+print('Dashboard populated')

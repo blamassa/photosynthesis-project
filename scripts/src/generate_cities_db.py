@@ -31,7 +31,6 @@ def filter_cities_by_population(df, pop_filter:int):
         filtered_cities (pandas.DataFrame): A df with the cities with the population bigger than the declared threshold
     '''    
     ### I don't want to see all of the cities in NL
-    print(df.head())
     filtered_cities = df[df['population'] >= pop_filter*(1e3)].reset_index(drop = True)
 
     return filtered_cities
