@@ -25,5 +25,11 @@ df_cloud_median.to_csv('../db/forecast/{}_{}.csv'.format(country_name, today))
 # Join the final filtered forecast dataframe to the population for plotting
 df_forecast_populated = join_population_final_forecast(df_cloud_median, country_name)
 
+# Removes useless columns
+df_forecast_populated = df_forecast_populated[['city', 'date','lat', 'lng', 'admin_name',
+       'population',  'air_temperature',
+       'cloud_area_fraction', 'relative_humidity', 'weekday']]
+# Saves final filtered forecast DF
+df_forecast_populated.to_csv('../db/final/{}_{}.csv'.format(country_name, today))
 # Generate plot
 generate_plot(df_plot = df_forecast_populated, country_name = country_name)
